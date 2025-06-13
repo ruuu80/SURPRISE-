@@ -1,0 +1,257 @@
+METTITI IL COSTUME, ANDIAMO IN SALENTO :-)
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALENTO 2025 - La Tua Sorpresa Ti Aspetta!</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/social/public/2x/baseline_palm_tree_black_24dp.png" type="image/png">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #282c34; /* Sfondo scuro di riserva */
+            color: #61dafb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+
+            /* TUTTE LE IMMAGINI COME SFONDO MULTIPLO */
+            background-image:
+                url('https://i.postimg.cc/nhqQ6k9Z/Fenicottero-rosa-riserva-naturale-Vendicari.jpg'), /* 1 Fenicottero */
+                url('https://i.postimg.cc/NLqj434X/1585041380314.avif'), /* 2 Spritz */
+                url('https://i.postimg.cc/KcK70tfc/Margarita-720x960.jpg'), /* 3 Margarita */
+                url('https://i.postimg.cc/MZh7NX37/1-Ombrellone-paglia4.jpg'), /* 4 Ombrellone */
+                url('https://i.postimg.cc/c1M1ybXF/istockphoto-157503228-612x612.jpg'), /* 5 Nuovo drink */
+                url('https://i.postimg.cc/66GjykDh/20241223-162155.jpg'); /* 6 Palma/Spiaggia */
+
+            background-position:
+                10% 15%,   /* Fenicottero: in alto a sinistra */
+                90% 20%,   /* Spritz: in alto a destra */
+                15% 85%,   /* Margarita: in basso a sinistra */
+                85% 80%,   /* Ombrellone: in basso a destra */
+                50% 5%,    /* Nuovo drink: in alto al centro */
+                50% 95%;   /* Palma/Spiaggia: in basso al centro */
+
+            background-size:
+                20% auto,  /* Fenicottero: 20% della larghezza del body */
+                20% auto,  /* Spritz: 20% */
+                20% auto,  /* Margarita: 20% */
+                25% auto,  /* Ombrellone: un po' più grande */
+                18% auto,  /* Nuovo drink: 18% */
+                25% auto;  /* Palma/Spiaggia: 25% */
+
+            background-repeat: no-repeat; /* Evita che le immagini si ripetano */
+            background-attachment: fixed; /* Mantiene le immagini fisse durante lo scroll */
+
+            /* Rimuove la transizione e il JavaScript per il cambio random */
+            /* transition: background-image 1s ease-in-out; */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Ombra più forte per leggibilità */
+            background-color: rgba(40, 44, 52, 0.7); /* Sfondo semitrasparente per il titolo */
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        #countdown {
+            display: flex;
+            gap: 20px;
+            background-color: rgba(58, 63, 71, 0.85); /* Sfondo semitrasparente più opaco per il timer */
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            border: 1px solid #4a4f57;
+        }
+
+        .time-segment {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 90px;
+        }
+
+        .time-value {
+            font-size: 4.5em;
+            font-weight: bold;
+            color: #a2f24b;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4); /* Ombra più forte */
+            line-height: 1;
+        }
+
+        .time-label {
+            font-size: 1.2em;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .message {
+            margin-top: 50px;
+            font-size: 3em;
+            font-weight: bold;
+            color: #e74c3c;
+            display: none;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7); /* Ombra molto forte */
+            background-color: rgba(40, 44, 52, 0.7); /* Sfondo semitrasparente per il messaggio finale */
+            padding: 20px 30px;
+            border-radius: 15px;
+        }
+
+        /* Media queries per schermi più piccoli */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+                margin-bottom: 30px;
+                padding: 8px 15px;
+            }
+            #countdown {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 30px;
+            }
+            .time-value {
+                font-size: 3.5em;
+            }
+            .time-label {
+                font-size: 1em;
+            }
+            .message {
+                font-size: 2em;
+                padding: 15px 25px;
+            }
+            /* Regola dimensioni e posizioni per schermi più piccoli se necessario */
+            body {
+                background-size:
+                    25% auto,
+                    25% auto,
+                    25% auto,
+                    30% auto,
+                    22% auto,
+                    30% auto;
+                background-position:
+                    5% 10%,
+                    95% 15%,
+                    10% 90%,
+                    90% 85%,
+                    50% 3%,
+                    50% 97%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            .time-value {
+                font-size: 2.8em;
+            }
+            .time-label {
+                font-size: 0.8em;
+            }
+            .message {
+                font-size: 1.5em;
+            }
+            body {
+                background-size:
+                    30% auto,
+                    30% auto,
+                    30% auto,
+                    35% auto,
+                    28% auto,
+                    35% auto;
+                background-position:
+                    2% 8%,
+                    98% 12%,
+                    8% 92%,
+                    92% 88%,
+                    50% 1%,
+                    50% 99%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="mainTitle">SALENTO 2025</h1>
+
+    <div id="countdown">
+        <div class="time-segment">
+            <div class="time-value" id="days">00</div>
+            <div class="time-label">Giorni</div>
+        </div>
+        <div class="time-segment">
+            <div class="time-value" id="hours">00</div>
+            <div class="time-label">Ore</div>
+        </div>
+        <div class="time-segment">
+            <div class="time-value" id="minutes">00</div>
+            <div class="time-label">Minuti</div>
+        </div>
+        <div class="time-segment">
+            <div class="time-value" id="seconds">00</div>
+            <div class="time-label">Secondi</div>
+        </div>
+    </div>
+
+    <div class="message" id="finishedMessage">
+        Siamo nel Salento!
+        Goditi la vacanza!
+    </div>
+
+    <script>
+        // Data e ora di destinazione: 18 Luglio 2025, mezzanotte (00:00:00)
+        const targetDate = new Date("July 18, 2025 00:00:00").getTime();
+        const daysSpan = document.getElementById('days');
+        const hoursSpan = document.getElementById('hours');
+        const minutesSpan = document.getElementById('minutes');
+        const secondsSpan = document.getElementById('seconds');
+        const mainTitle = document.getElementById('mainTitle');
+        const finishedMessage = document.getElementById('finishedMessage');
+        const countdownContainer = document.getElementById('countdown');
+
+        // L'array 'images' e le funzioni changeBackground() e setInterval()
+        // sono state rimosse perché le immagini sono ora fisse e multiple nel CSS.
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Calcoli per giorni, ore, minuti, secondi
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance > 0) {
+                daysSpan.textContent = days.toString().padStart(2, '0');
+                hoursSpan.textContent = hours.toString().padStart(2, '0');
+                minutesSpan.textContent = minutes.toString().padStart(2, '0');
+                secondsSpan.textContent = seconds.toString().padStart(2, '0');
+            } else {
+                // Il conto alla rovescia è terminato
+                clearInterval(countdownInterval);
+                countdownContainer.style.display = 'none'; // Nasconde il timer
+                mainTitle.style.display = 'none'; // Nasconde il titolo "SALENTO 2025"
+                finishedMessage.style.display = 'block'; // Mostra il messaggio finale
+            }
+        }
+
+        // Aggiorna il conto alla rovescia ogni secondo
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        // Chiamata iniziale per visualizzare subito il timer
+        updateCountdown();
+    </script>
+</body>
+</html>
